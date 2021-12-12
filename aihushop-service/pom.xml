@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.binbinxiu</groupId>
-    <artifactId>auhushop-service</artifactId>
+    <artifactId>aihushop-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>com.binbinxiu</groupId>
-            <artifactId>auhushop-mapper</artifactId>
+            <artifactId>aihushop-mapper</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

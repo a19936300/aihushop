@@ -19,11 +19,11 @@
 
 
     <modules>
-        <module>auhushop-common</module>
-        <module>auhushop-pojo</module>
-        <module>auhushop-mapper</module>
-        <module>auhushop-service</module>
-        <module>auhushop-api</module>
+        <module>aihushop-common</module>
+        <module>aihushop-pojo</module>
+        <module>aihushop-mapper</module>
+        <module>aihushop-service</module>
+        <module>aihushop-api</module>
     </modules>
 
     <properties>

@@ -24,6 +24,7 @@ public class CodeGenerator {
 	 * </p>
 	 */
 	public static String scanner(String tip) {
+		System.out.println("代码生成可以mapper,service,controller,mapper.xml,serviceImpl等，并指定文件夹");
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		StringBuilder help = new StringBuilder();

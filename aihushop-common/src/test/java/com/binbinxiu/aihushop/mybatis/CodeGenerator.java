@@ -161,11 +161,11 @@ public class CodeGenerator {
 		 * 这里包路径可以根据实际情况灵活配置
 		 */
 		Map<String, String> packageInfo = new HashMap<>();
-		packageInfo.put(ConstVal.CONTROLLER, "com.binbinxiu.aihushop" + moduleName + ".controller");
-		packageInfo.put(ConstVal.SERVICE, "com.binbinxiu.aihushop" + moduleName + ".service");
-		packageInfo.put(ConstVal.SERVICE_IMPL, "com.binbinxiu.aihushop" + moduleName + ".service.impl");
-		packageInfo.put(ConstVal.ENTITY, "com.binbinxiu.aihushop" + moduleName + ".entity");
-		packageInfo.put(ConstVal.MAPPER, "com.binbinxiu.aihushop" + moduleName + ".mapper");
+		packageInfo.put(ConstVal.CONTROLLER, "com.binbinxiu.aihushop.controller");
+		packageInfo.put(ConstVal.SERVICE, "com.binbinxiu.aihushop.service");
+		packageInfo.put(ConstVal.SERVICE_IMPL, "com.binbinxiu.aihushop.service.impl");
+		packageInfo.put(ConstVal.ENTITY, "com.binbinxiu.aihushop.entity");
+		packageInfo.put(ConstVal.MAPPER, "com.binbinxiu.aihushop.mapper");
 
 		/**
 		 * pathInfo配置controller、service、serviceImpl、entity、mapper、mapper.xml等文件的生成路径
@@ -183,7 +183,7 @@ public class CodeGenerator {
 				pojoPath + packageInfo.get(ConstVal.ENTITY).replaceAll("\\.", StringPool.BACK_SLASH + File.separator));
 		pathInfo.put(ConstVal.MAPPER_PATH, mapperPath
 				+ packageInfo.get(ConstVal.MAPPER).replaceAll("\\.", StringPool.BACK_SLASH + File.separator));
-		pathInfo.put(ConstVal.XML_PATH, projectPath + "\\foodie-mapper\\src\\main\\resources\\mapper\\" + moduleName);
+		pathInfo.put(ConstVal.XML_PATH, projectPath + "\\aihushop-mapper\\src\\main\\resources\\mapper\\" + moduleName);
 		pc.setPathInfo(pathInfo);
 
 		/**

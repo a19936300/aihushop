@@ -1,6 +1,6 @@
 package com.binbinxiu.aihushop.mapper;
 
-import com.binbinxiu.aihushop.entity.User;
+import com.binbinxiu.aihushop.entity.Stu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author binbin
- * @since 2021-12-13
+ * @since 2021-12-14
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface StuMapper extends BaseMapper<Stu> {
 
 }

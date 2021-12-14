@@ -1,20 +1,8 @@
 package com.binbinxiu.aihushop;
 
-import com.binbinxiu.aihushop.entity.User;
-import com.binbinxiu.aihushop.service.IUserService;
-import lombok.extern.java.Log;
-import lombok.extern.jbosslog.JBossLog;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * aihushop  api启动类

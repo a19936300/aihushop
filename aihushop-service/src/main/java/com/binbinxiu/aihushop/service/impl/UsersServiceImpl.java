@@ -1,5 +1,10 @@
 package com.binbinxiu.aihushop.service.impl;
 
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.crypto.SecureUtil;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.binbinxiu.aihushop.bo.UserBo;
 import com.binbinxiu.aihushop.entity.Users;
 import com.binbinxiu.aihushop.mapper.UsersMapper;
 import com.binbinxiu.aihushop.service.IUsersService;
@@ -17,4 +22,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements IUsersService {
 
+    @Override
+    public boolean queryUserNameIsExist(String userName) {
+        Users users = super.getOne(Wrappers.<Users>lambdaQuery().eq(Users::getUsername, userName));
+        return ObjectUtil.isNotEmpty(users);
+    }
+
+    @Override
+    public Users createUser(UserBo userBo) {
+        Users users = new Users();
+        users.setUsername(userBo.getUsername());
+        users.setPassword(SecureUtil.md5(userBo.getPassword()));
+        users.setId(IdUtil.objectId());
+        super.save(users);
+        return users;
+    }
 }

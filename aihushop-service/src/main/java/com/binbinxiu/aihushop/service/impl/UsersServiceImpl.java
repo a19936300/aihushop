@@ -1,5 +1,6 @@
 package com.binbinxiu.aihushop.service.impl;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.SecureUtil;
@@ -9,7 +10,10 @@ import com.binbinxiu.aihushop.entity.Users;
 import com.binbinxiu.aihushop.mapper.UsersMapper;
 import com.binbinxiu.aihushop.service.IUsersService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements IUsersService {
+    private final String face = "";
 
     @Override
     public boolean queryUserNameIsExist(String userName) {
@@ -33,7 +38,10 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
         Users users = new Users();
         users.setUsername(userBo.getUsername());
         users.setPassword(SecureUtil.md5(userBo.getPassword()));
+        users.setFace(face);
         users.setId(IdUtil.objectId());
+        users.setCreatedTime(LocalDateTime.now());
+        users.setUpdatedTime(LocalDateTime.now());
         super.save(users);
         return users;
     }

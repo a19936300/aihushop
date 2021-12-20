@@ -14,12 +14,14 @@ import com.binbinxiu.aihushop.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 
 /**
@@ -34,6 +36,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/passport")
 @Api("用户表  前端控制器")
 @Slf4j
+@Validated
 public class UsersController {
 
     @Autowired
@@ -41,11 +44,9 @@ public class UsersController {
 
     @ApiOperation("验证用户名是否存在")
     @GetMapping("/usernameIsExist")
-    public R check(String username){
+    @ResponseBody
+    public R check(@NotBlank(message = "用户名不能为空") String username){
         //1.检查用户名
-        if(StrUtil.isBlank(username)){
-            return R.errorMsg("用户名不能为空");
-        }
         boolean isExist = usersService.queryUserNameIsExist(username);
         if(isExist){
             return R.errorMsg("用户名已存在");

@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.31.206:3306/aihudb?ucharacterEncoding=UTF8
+    url: jdbc:mysql://192.168.31.180:3306/aihushopdb?ucharacterEncoding=UTF8&allowLoadLocalInfile=true
     username: builder
     password: builder@123
     type: com.zaxxer.hikari.HikariDataSource

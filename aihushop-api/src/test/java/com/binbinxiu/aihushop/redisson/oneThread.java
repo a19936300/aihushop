@@ -28,16 +28,20 @@ public class oneThread implements Runnable{
     public void run() {
 
         RLock lock = redissonClient.getLock("lock");
-        logger.error("thread----{}, lock:{}",Thread.currentThread().getId(),lock);
-            if(lock.tryLock()){
-                try{
-                    logger.error("trylock thread ----{},lock:{}",Thread.currentThread().getId(),lock);
-                    logger.error("aaaaaaaaaaaaaa");
-                }finally {
-                    lock.unlock();
-                }
-            }else{
-                logger.error("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        try {
+            boolean b = lock.tryLock(3, 1, TimeUnit.SECONDS);
+            logger.info("获取分布式锁成功-----{}",lock);
+            if(b){
+                //执行save方法
+                Thread.sleep(30);
             }
+        } catch (Exception e) {
+            //失败回滚
+        }finally {
+            logger.info("释放分布式锁成功-----{}",lock);
+            if(lock.isHeldByCurrentThread()){
+                lock.unlock();
+            }
+        }
     }
 }

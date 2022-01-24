@@ -2,6 +2,8 @@ package com.binbinxiu.aihushop.service;
 
 import com.binbinxiu.aihushop.entity.Stu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -13,4 +15,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStuService extends IService<Stu> {
 
+    void saveParent();
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    void saveChildren();
 }
